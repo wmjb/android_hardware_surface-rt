@@ -48,15 +48,15 @@
 
 #define MIXER_CARD 0
 
-#define OUT_PERIOD_SIZE 512
+#define OUT_PERIOD_SIZE 240
 #define OUT_SHORT_PERIOD_COUNT 2
 #define OUT_LONG_PERIOD_COUNT 8
-#define OUT_SAMPLING_RATE 44100
+#define OUT_SAMPLING_RATE 48000
 
-#define IN_PERIOD_SIZE 1024
+#define IN_PERIOD_SIZE 240
 #define IN_PERIOD_SIZE_LOW_LATENCY 512
 #define IN_PERIOD_COUNT 2
-#define IN_SAMPLING_RATE 44100
+#define IN_SAMPLING_RATE 48000
 
 #define SCO_PERIOD_SIZE 256
 #define SCO_PERIOD_COUNT 4
@@ -1329,4 +1329,3 @@ struct audio_module HAL_MODULE_INFO_SYM = {
         .methods = &hal_module_methods,
     },
 };
-
