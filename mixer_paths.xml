@@ -4,7 +4,7 @@
   <path name="speaker">
     <ctl name="Speaker Switch" value="1" />
     <ctl name="Speaker Volume" value="121" />
-    <ctl name="Digital Playback Volume" value="96" />
+    <ctl name="Digital Playback Volume" value="121" />
   </path>
 
   <path name="headphone">
@@ -15,14 +15,14 @@
   <path name="dock">
     <ctl name="Speaker Switch" value="1" />
     <ctl name="Speaker Volume" value="121" />
-    <ctl name="Digital Playback Volume" value="96" />
+    <ctl name="Digital Playback Volume" value="121" />
   </path>
 
   <path name="main-mic-top">
     <ctl name="MIXINR IN3R Switch" value="1" />
     <ctl name="MIXINR IN3R Volume" value="7" />
     <ctl name="Capture Switch" value="1" />
-    <ctl name="Capture Volume" value="63" />
+    <ctl name="Capture Volume" value="121" />
     <ctl name="Digital Capture Volume" value="127" />
   </path>
 
@@ -30,7 +30,7 @@
     <ctl name="MIXINR IN3R Switch" value="1" />
     <ctl name="MIXINR IN3R Volume" value="7" />
     <ctl name="Capture Switch" value="1" />
-    <ctl name="Capture Volume" value="63" />
+    <ctl name="Capture Volume" value="121" />
     <ctl name="Digital Capture Volume" value="127" />
 
   </path>
