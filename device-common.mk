@@ -15,8 +15,8 @@
 #
 
 PRODUCT_CHARACTERISTICS := tablet,nosdcard
-PRODUCT_AAPT_CONFIG := normal large xlarge hdpi
-PRODUCT_AAPT_PREF_CONFIG := hdpi
+PRODUCT_AAPT_CONFIG := normal large
+PRODUCT_AAPT_PREF_CONFIG := tvdpi
 
 # A list of dpis to select prebuilt apk, in precedence order.
 PRODUCT_AAPT_PREBUILT_DPI := hdpi
@@ -51,8 +51,8 @@ PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
 PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
 # Default heap sizes. Allow up to 256m for large heaps to make sure a single app
 # doesn't take all of the RAM.
-PRODUCT_PROPERTY_OVERRIDES += dalvik.vm.heapgrowthlimit=192m
-PRODUCT_PROPERTY_OVERRIDES += dalvik.vm.heapsize=512m
+PRODUCT_PROPERTY_OVERRIDES += dalvik.vm.heapgrowthlimit=128m
+PRODUCT_PROPERTY_OVERRIDES += dalvik.vm.heapsize=256m
 
 #--------------------------------------------------------------------------------------------------
 
@@ -66,20 +66,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.hwui.render_dirty_regions=false
 
-include frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk
+include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
 
 PRODUCT_COPY_FILES += \
     device/asus/grouper/ueventd.grouper.rc:root/ueventd.grouper.rc \
     device/asus/grouper/init.grouper.usb.rc:root/init.grouper.usb.rc \
+    device/asus/grouper/sensors-load-calibration.sh:system/bin/sensors-load-calibration.sh \
     device/asus/grouper/set_hwui_params.sh:system/bin/set_hwui_params.sh
 
 PRODUCT_PACKAGES += \
     libstlport
-
-ifneq ($(TARGET_PREBUILT_WIFI_MODULE),)
-PRODUCT_COPY_FILES += \
-    $(TARGET_PREBUILT_WIFI_MODULE):system/lib/modules/bcm4329.ko
-endif
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
@@ -94,6 +90,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+    frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
     frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml
 
 PRODUCT_COPY_FILES += \
@@ -114,20 +111,17 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libhealthd.tegra3 \
     lights.grouper \
-    audio.primary.tegra \
+    audio.primary.grouper\
     power.grouper \
-    audio.a2dp.default \
-    audio.usb.default \
-    audio.r_submix.default \
     librs_jni \
     libemoji \
     l2ping \
-    hcitool \
-    bttest \
-    libaudioutils \
-    libtinyalsa \
     com.android.future.usb.accessory
 
+PRODUCT_PACKAGES += \
+        tinycap \
+        tinymix \
+        tinyplay
 
 PRODUCT_PACKAGES += \
     keystore.grouper
@@ -168,9 +162,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libstagefrighthw
 
-PRODUCT_PACKAGES += \
-    PerformanceControl
-
 WIFI_BAND := 802_11_BG
 PRODUCT_DEFAULT_WIFI_CHANNELS := 13
 
@@ -178,9 +169,9 @@ PRODUCT_DEFAULT_WIFI_CHANNELS := 13
 
 # inherit from the non-open-source side
 $(call inherit-product, vendor/asus/grouper/asus-vendor.mk)
-$(call inherit-product, vendor/broadcom/grouper/broadcom-vendor.mk)
-$(call inherit-product, vendor/elan/grouper/elan-vendor.mk)
-$(call inherit-product, vendor/invensense/grouper/invensense-vendor.mk)
+#$(call inherit-product, vendor/broadcom/grouper/broadcom-vendor.mk)
+#$(call inherit-product, vendor/elan/grouper/elan-vendor.mk)
+#$(call inherit-product, vendor/invensense/grouper/invensense-vendor.mk)
 $(call inherit-product, vendor/nvidia/grouper/nvidia-vendor.mk)
 $(call inherit-product-if-exists, vendor/widevine/arm-generic/widevine-vendor.mk)
 

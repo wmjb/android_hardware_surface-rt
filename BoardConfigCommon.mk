@@ -72,33 +72,13 @@ WIFI_DRIVER_FW_PATH_AP :=  "drv_mode=6"
 
 WIFI_DRIVER_FW_PATH_P2P := "drv_mode=5"
 
-
-
-#WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/mwifiex_sdio.ko"
-
-#WIFI_DRIVER_MODULE_NAME := "mwifiex_sdio"
-
-
 TARGET_BOOTLOADER_BOARD_NAME := grouper
 
 TARGET_FORCE_SCREENSHOT_CPU_PATH := true
 
-BOARD_USES_GENERIC_AUDIO := false
-#BOARD_HAVE_PRE_KITKAT_AUDIO_BLOB := true
-#BOARD_HAVE_PRE_KITKAT_AUDIO_POLICY_BLOB := true
-#USE_LEGACY_AUDIO_POLICY := 1
-
-#USE_PROPRIETARY_AUDIO_EXTENSIONS := true
-#BOARD_USES_ALSA_AUDIO := true
-
-
-BOARD_USES_TINY_AUDIO_HW := true
-
-#BOARD_USES_TINY_ALSA_AUDIO := true
-
-#BUILD_WITH_ALSA_UTILS := true
-
-
+# Audio Setup
+BOARD_USES_ALSA_AUDIO := true
+BUILD_WITH_ALSA_UTILS := true
 
 BOARD_USES_GENERIC_INVENSENSE := false
 
@@ -116,7 +96,7 @@ ifneq ($(HAVE_NVIDIA_PROP_SRC),false)
 endif
 
 # Override healthd HAL
-BOARD_HAL_STATIC_LIBRARIES := libdumpstate.grouper libhealthd.tegra3
+BOARD_HAL_STATIC_LIBRARIES := libhealthd.tegra3
 
 # Avoid the generation of ldrcc instructions
 NEED_WORKAROUND_CORTEX_A9_745320 := true
@@ -137,7 +117,7 @@ ARM_EABI_TOOLCHAIN:= $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-l
 KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.8
 #TARGET_GCC_VERSION_EXP := 4.9
-TARGET_KERNEL_CONFIG := surface-rt_android_defconfig
+TARGET_KERNEL_CONFIG := tegra3_android_defconfig
 TARGET_KERNEL_SOURCE := kernel/asus/grouper
 
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
@@ -146,10 +126,3 @@ TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 BOARD_SEPOLICY_DIRS += device/asus/grouper/sepolicy
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/asus/grouper
-
-BOARD_HAS_LARGE_FILESYSTEM := true
-
-TARGET_SCREEN_HEIGHT := 1366
-TARGET_SCREEN_WIDTH := 768
-
-

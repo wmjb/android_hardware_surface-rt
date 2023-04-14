@@ -6,9 +6,12 @@ persist.tegra.nvmmlite = 1
 ro.audio.monitorOrientation=true
 net.tethering.noprovisioning=true
 
+#NFC
+debug.nfc.fw_download=false
+debug.nfc.se=false
 
 # set default lcd density to TVDPI
-ro.sf.lcd_density=213
+ro.sf.lcd_density=140
 
 ro.sys.fw.bg_apps_limit = 12
 ro.sys.fw.use_trim_settings=true
@@ -27,16 +30,16 @@ persist.tegra.didim.video = 5
 persist.tegra.didim.enable = 1
 persist.tegra.didim.normal = 3
 # Dalvik and other tweaks
-dalvik.vm.heapgrowthlimit=192m
-dalvik.vm.heapsize=512m
+dalvik.vm.heapgrowthlimit=128m
+dalvik.vm.heapsize=256m
 dalvik.vm.verify-bytecode=false
 persist.adb.notify=0
 ro.kernel.android.checkjni=0
 ro.kernel.checkjni=0
 dalvik.vm.checkjni=false
 ro.ril.disable.power.collapse=0
-pm.sleep_mode=1
-ro.config.hw_power_saving=true
+#pm.sleep_mode=1
+#ro.config.hw_power_saving=true
 persist.debug.wfd.enable=1
 persist.sys.force_highendgfx=true
 config.disable_atlas=true
@@ -45,10 +48,10 @@ config.disable_atlas=true
 persist.android.strictmode=0
 
 # 16bit Transparency
-persist.sys.use_16bpp_alpha=1
+#persist.sys.use_16bpp_alpha=1
 
 #config low ram device
-ro.config.low_ram=true
+#ro.config.low_ram=true
 
 #disable scrolling cache (1 = on, 2 = sometimes on, 3 = sometimes off, 4 = allways off)
 persist.sys.scrollingcache=1
